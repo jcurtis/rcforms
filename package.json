@@ -4,5 +4,30 @@
   "description": "Components for building forms in react",
   "main": "index.js",
   "author": "Jamie Curtis <jamocurtis@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "jest",
+    "lint": "standard"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.2.0",
+    "babel-preset-react": "^6.23.0",
+    "jest": "^19.0.2",
+    "react": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
+    "standard": "^9.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "standard": {
+    "globals": [
+      "test",
+      "expect"
+    ]
+  }
 }

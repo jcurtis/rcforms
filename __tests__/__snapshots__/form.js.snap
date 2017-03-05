@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form renders 1`] = `
+<form
+  className="form"
+  noValidate={true}
+  onSubmit={undefined}
+  role="form"
+/>
+`;
