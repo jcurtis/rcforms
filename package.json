@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "npm run test",
-    "build": "babel src -d lib",
+    "build": "rm -rf lib && babel src -d lib",
     "test": "npm run lint && npm run build && jest",
     "storybook": "start-storybook -p 9001 -c __storybook__",
     "lint": "standard"
