@@ -34,5 +34,13 @@
     "ignore": [
       "lib"
     ]
-  }
+  },
+  "repository": {
+    "url": "https://github.com/jcurtis/rcforms",
+    "type": "git"
+  },
+  "keywords": ["react", "forms"],
+  "files": [
+    "lib/**.js"
+  ]
 }
