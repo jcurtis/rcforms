@@ -44,6 +44,6 @@
     "forms"
   ],
   "files": [
-    "lib/**.js"
+    "lib/**/**.js"
   ]
 }
