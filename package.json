@@ -1,0 +1,8 @@
+{
+  "name": "rcforms",
+  "version": "0.0.1",
+  "description": "Components for building forms in react",
+  "main": "index.js",
+  "author": "Jamie Curtis <jamocurtis@gmail.com>",
+  "license": "MIT"
+}
