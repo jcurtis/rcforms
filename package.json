@@ -1,6 +1,6 @@
 {
   "name": "rcforms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Components for building forms in react",
   "main": "lib/index.js",
   "author": "Jamie Curtis <jamocurtis@gmail.com>",
@@ -39,7 +39,10 @@
     "url": "https://github.com/jcurtis/rcforms",
     "type": "git"
   },
-  "keywords": ["react", "forms"],
+  "keywords": [
+    "react",
+    "forms"
+  ],
   "files": [
     "lib/**.js"
   ]
