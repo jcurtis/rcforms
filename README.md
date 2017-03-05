@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jcurtis/rcforms.svg?branch=master)](https://travis-ci.org/jcurtis/rcforms)
+
 # rcforms
 
 rcforms is a small React library to help build forms.
