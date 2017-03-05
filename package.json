@@ -2,15 +2,17 @@
   "name": "rcforms",
   "version": "0.0.1",
   "description": "Components for building forms in react",
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "Jamie Curtis <jamocurtis@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "babel src -d lib",
     "test": "jest",
+    "storybook": "start-storybook -p 9001 -c __storybook__",
     "lint": "standard"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.23.0",
     "babel-jest": "^19.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -18,6 +20,7 @@
     "babel-preset-react": "^6.23.0",
     "jest": "^19.0.2",
     "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-test-renderer": "^15.4.2",
     "standard": "^9.0.0"
   },
