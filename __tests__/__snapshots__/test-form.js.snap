@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TestForm 1`] = `
+<section>
+  <form
+    className="form"
+    noValidate={true}
+    role="form"
+  >
+    <h1>
+      My Test Form
+    </h1>
+    <p>
+      <label
+        htmlFor="input1"
+      >
+        Input 1
+      </label>
+      <input
+        name="input1"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </p>
+    <p>
+      <label
+        htmlFor="input2"
+      >
+        Input 2
+      </label>
+      <input
+        name="input2"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value="initial2"
+      />
+    </p>
+    <p>
+      <label
+        htmlFor="input3"
+      >
+        Input 3
+      </label>
+      <input
+        name="input3"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value="initial3"
+      />
+    </p>
+    <p>
+      <label
+        htmlFor="input4"
+      >
+        Input 4
+      </label>
+      <input
+        name="input4"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value="initial4@test.com"
+      />
+    </p>
+    <p>
+      <label
+        htmlFor="input5"
+      >
+        Input 5
+      </label>
+      <input
+        name="input5"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value="initial5@test.com"
+      />
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </form>
+</section>
+`;

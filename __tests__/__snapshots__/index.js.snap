@@ -4,7 +4,10 @@ exports[`Form renders 1`] = `
 <form
   className="form"
   noValidate={true}
-  onSubmit={undefined}
   role="form"
-/>
+>
+  <span>
+    inner form
+  </span>
+</form>
 `;

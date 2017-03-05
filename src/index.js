@@ -1,10 +1,7 @@
-import {reduce, every} from 'lodash'
 import React, {Component, PropTypes} from 'react'
 
 // Components
 import TextInput from './inputs/text-input'
-// import TextAreaControl from './text-area-control';
-// import SubmitButton from '../../submit-button';
 
 // Valid Input Controls
 export {
@@ -31,25 +28,18 @@ class Form extends Component {
   }
 
   render () {
-    // let submit;
-    // if (this.props.onSubmit) {
-    //   submit = (
-    //     <div className="row">
-    //       <SubmitButton
-    //         onClick={this._handleSubmit}
-    //         processing={this.state.isSubmitting}
-    //         label={_t('Save')}
-    //         altLabel={_t('Saving')}
-    //         style="primary"
-    //         disabled={this.props.disabled || !this.state.valid}
-    //       />
-    //     </div>
-    //   );
-    // }
+    let submit
+    if (this.props.onSubmit) {
+      submit = (
+        <button onClick={this._handleSubmit}>
+          Submit
+        </button>
+      )
+    }
     return (
-      <form className='form' role='form' onSubmit={this.props.onSubmit} noValidate>
+      <form className='form' role='form' noValidate>
         {this.props.children}
-        {/* {submit} */}
+        {submit}
       </form>
     )
   }
@@ -70,10 +60,10 @@ class Form extends Component {
     if (setup) {
       this.setupValues = values
     }
-
+    const valKeys = Object.keys(values)
     const newState = {
       values,
-      valid: every(values, val => val.valid)
+      valid: valKeys.every(key => values[key].valid)
     }
     this.setState(newState)
     if (this.props.onChange) {
@@ -92,18 +82,19 @@ class Form extends Component {
   }
 
   getValues () {
-    return reduce(this.state.values, (values, valueObj, name) => {
-      return {
-        ...values,
-        [name]: valueObj.value
-      }
-    }, {})
+    return Object.keys(this.state.values)
+      .reduce((acc, key) => {
+        return {
+          ...acc,
+          [key]: this.state.values[key].value
+        }
+      }, {})
   }
 }
 
 Form.propTypes = {
   onSubmit: PropTypes.func, // Requires a callback for spinner
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any,
   onChange: PropTypes.func,
   disabled: PropTypes.bool
 }

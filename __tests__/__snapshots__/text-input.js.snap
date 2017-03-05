@@ -1,12 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TextInput is composable 1`] = `
+<form
+  className="form"
+  noValidate={true}
+  role="form"
+>
+  <h1>
+    My Form
+  </h1>
+  <div
+    className="composed"
+  >
+    <span>
+      Composable
+    </span>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+</form>
+`;
+
 exports[`TextInput renders 1`] = `
 <input
-  className="form-control"
-  name={undefined}
   onBlur={[Function]}
   onChange={[Function]}
-  readOnly={undefined}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput renders inside a Form 1`] = `
+<form
+  className="form"
+  noValidate={true}
+  role="form"
+>
+  <input
+    onBlur={[Function]}
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+</form>
+`;
+
+exports[`TextInput renders with props 1`] = `
+<input
+  name="name"
+  onBlur={[Function]}
+  onChange={[Function]}
+  readOnly={true}
   type="text"
   value=""
 />

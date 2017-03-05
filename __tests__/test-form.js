@@ -1,12 +1,10 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Form from '../lib/index.js'
+import TestForm from '../__storybook__/test-form'
 
-test('Form renders', () => {
+test('renders TestForm', () => {
   const component = renderer.create(
-    <Form>
-      <span>inner form</span>
-    </Form>
+    <TestForm />
   )
   let tree = component.toJSON()
   expect(tree).toMatchSnapshot()

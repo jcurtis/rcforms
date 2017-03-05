@@ -1,8 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-// import {itemShape} from './item-shape'
-// import ControlWrapper from './control-wrapper'
 
-class TextInputControl extends Component {
+class TextInput extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -24,18 +22,22 @@ class TextInputControl extends Component {
   }
 
   render () {
+     // Pull out non input attributes
+    const {
+      /* eslint-disable no-unused-vars */
+      initialValue,
+      validation,
+      /* eslint-enable no-unused-vars */
+      ...restProps
+    } = this.props
     return (
-      // <ControlWrapper {...this.props} errorMessage={this.state.errorMessage}>
       <input
-        name={this.props.name}
+        {...restProps}
         type='text'
         value={this.state.value}
-        readOnly={this.props.readOnly}
         onChange={this._handleChange}
         onBlur={this._handleBlur}
-        className='form-control'
       />
-      // </ControlWrapper>
     )
   }
 
@@ -77,10 +79,14 @@ class TextInputControl extends Component {
   }
 }
 
-// TextInputControl.propTypes = itemShape
+TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  initialValue: PropTypes.string,
+  validation: PropTypes.func
+}
 
-TextInputControl.contextTypes = {
+TextInput.contextTypes = {
   onChange: PropTypes.func
 }
 
-export default TextInputControl
+export default TextInput
