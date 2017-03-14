@@ -1,3 +1,4 @@
+// @flow
 /**
   * Define standard validators for form controls
   * Must be of form function (name, label) {}
