@@ -6,7 +6,6 @@
   "author": "Jamie Curtis <jamocurtis@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prepublish": "npm run test",
     "build": "rm -rf lib && babel src -d lib",
     "test": "npm run check && npm run build && jest",
     "storybook": "start-storybook -p 9001 -c __storybook__",
