@@ -1,3 +1,4 @@
+// @flow
 import React, {Component, PropTypes} from 'react'
 
 // Components
@@ -8,8 +9,27 @@ export {
   TextInput
 }
 
+type Props = {
+  onSubmit: any, // Requires a callback for spinner
+  children: any,
+  onChange: any,
+  disabled: boolean
+}
+
 class Form extends Component {
-  constructor (props) {
+  props: Props
+
+  state: {
+    isSubmitting: boolean,
+    values: any,
+    valid: boolean
+  }
+
+  setupValues: any
+  _handleSubmit: () => void
+  _onChange: () => void
+
+  constructor (props: Props) {
     super(props)
     this.state = {
       isSubmitting: false,
@@ -44,7 +64,7 @@ class Form extends Component {
     )
   }
 
-  _onChange (valueObj, setup) {
+  _onChange (valueObj: any, setup: boolean) {
     let validValue = true
     if (typeof valueObj.valid === 'boolean') {
       validValue = valueObj.valid
@@ -71,7 +91,7 @@ class Form extends Component {
     }
   }
 
-  _handleSubmit (evt) {
+  _handleSubmit (evt: any) {
     evt.preventDefault()
     if (this.state.valid) {
       this.setState({isSubmitting: true})
@@ -90,13 +110,6 @@ class Form extends Component {
         }
       }, {})
   }
-}
-
-Form.propTypes = {
-  onSubmit: PropTypes.func, // Requires a callback for spinner
-  children: PropTypes.any,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool
 }
 
 Form.childContextTypes = {

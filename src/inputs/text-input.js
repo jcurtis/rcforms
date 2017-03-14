@@ -1,10 +1,30 @@
+// @flow
 import React, {Component, PropTypes} from 'react'
+import type {ValidationFunc} from '../types'
+
+type Props = {
+  name: string,
+  initialValue: string,
+  validation: ValidationFunc
+}
 
 class TextInput extends Component {
-  constructor (props) {
+  props: Props
+
+  state: {
+    value: string,
+    errorMessage: ?string
+  }
+
+  _handleChange: () => void
+  _handleBlur: () => void
+  isValid: (value: string) => boolean
+
+  constructor (props: Props) {
     super(props)
     this.state = {
-      value: this.props.initialValue || ''
+      value: this.props.initialValue || '',
+      errorMessage: null
     }
     this._handleChange = this._handleChange.bind(this)
     this._handleBlur = this._handleBlur.bind(this)
@@ -41,7 +61,7 @@ class TextInput extends Component {
     )
   }
 
-  _handleChange (evt) {
+  _handleChange (evt: any) {
     this.setState({value: evt.target.value})
     if (this.context.onChange) {
       this.context.onChange({
@@ -54,18 +74,16 @@ class TextInput extends Component {
 
   _handleBlur () {
     if (this.props.validation) {
-      const {valid, message} = this.props.validation(this.state.value, this.props.label)
-      if (!valid && message) {
-        this.setState({errorMessage: message})
-      } else {
-        this.setState({errorMessage: null})
+      const {valid, code} = this.props.validation(this.state.value)
+      if (!valid) {
+        this.context.onChange({valid, code})
       }
     }
   }
 
-  isValid (value) {
+  isValid (value: string) {
     if (this.props.validation) {
-      const {valid} = this.props.validation(value, this.props.label)
+      const {valid} = this.props.validation(value)
       return valid
     }
     return true
@@ -77,12 +95,6 @@ class TextInput extends Component {
       value: this.state.value
     }
   }
-}
-
-TextInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  initialValue: PropTypes.string,
-  validation: PropTypes.func
 }
 
 TextInput.contextTypes = {
